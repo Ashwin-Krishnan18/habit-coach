@@ -1,0 +1,281 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 54%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --sidebar-background: 240 10% 3.9%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-primary: 211 100% 99%;
+  --sidebar-primary-foreground: 220 14.3% 95.9%;
+  --sidebar-accent: 240 3.7% 15.9%;
+  --sidebar-accent-foreground: 0 0% 98%;
+  --sidebar-border: 240 3.7% 15.9%;
+  --sidebar-ring: 240 4.9% 83.9%;  
+  --chart-1: 212 100% 48%;
+  --chart-2: 142 72% 29%;
+  --chart-3: 0 85% 61%;
+  --chart-4: 41 100% 50%;
+  --chart-5: 283 54% 61%;
+  --radius: 0.5rem;
+
+  /* Custom colors for habit app */
+  --dark-900: #121212;
+  --dark-800: #1E1E1E;
+  --dark-700: #2D2D2D;
+  --dark-600: #333333;
+  --dark-500: #424242;
+  --dark-400: #555555;
+  --accent-purple: #7928CA;
+  --accent-blue: #4F46E5;
+  --accent-emerald: #10B981;
+  --accent-teal: #0EA5E9;
+  --accent-success: #10B981;
+  --accent-danger: #EF4444;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased text-foreground bg-[#121212];
+  }
+}
+
+/* Custom Glassmorphism */
+.glassmorphism {
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.glassmorphism:hover {
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-success {
+  background: linear-gradient(90deg, var(--accent-emerald), var(--accent-teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gradient Border */
+.gradient-border {
+  position: relative;
+  border-radius: 0.5rem;
+  z-index: 0;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  padding: 1px;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Button Gradients */
+.btn-gradient {
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  box-shadow: 0 0 15px rgba(121, 40, 202, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background: linear-gradient(90deg, var(--accent-emerald), var(--accent-teal));
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Badge Animations */
+.badge {
+  transition: all 0.3s ease;
+}
+
+.badge:hover {
+  transform: scale(1.05);
+}
+
+/* Habit Card Animations */
+.habit-card {
+  transition: all 0.3s ease;
+}
+
+.habit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styling */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+/* Custom Animations */
+.checkmark-animation {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Calendar Day Animations */
+.calendar-day {
+  transition: all 0.3s ease;
+}
+
+.calendar-day:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  box-shadow: 0 0 15px rgba(121, 40, 202, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1E1E1E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Additional hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(121, 40, 202, 0.5);
+}
+
+/* Input fields hover/focus effects */
+input, select, textarea {
+  transition: all 0.3s ease;
+}
+
+input:hover, select:hover, textarea:hover {
+  border-color: var(--accent-purple);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+/* Button pulse animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(121, 40, 202, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(121, 40, 202, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(121, 40, 202, 0);
+  }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+/* Habit type selection animations */
+.type-selection-item {
+  transition: all 0.3s ease;
+}
+
+.type-selection-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-purple);
+}
+
+.type-selection-item.selected {
+  border-color: var(--accent-purple);
+  background: linear-gradient(rgba(121, 40, 202, 0.1), rgba(79, 70, 229, 0.1));
+}
+
+/* Animation for successful check-in */
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.scale-in-animation {
+  animation: scale-in 0.5s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
